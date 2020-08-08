@@ -13,3 +13,7 @@ export const responseEnum = {
     NOT_EXISTS: 532,
     NO_PERMISSION: 533,
 };
+
+export const languages = {
+    ENGLISH: "english"
+};
