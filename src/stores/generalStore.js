@@ -1,5 +1,5 @@
 import {action, computed, observable} from 'mobx';
-import {GeneralRequester} from '../requests/GeneralRequester';
+import {GeneralRequest} from '../requests/GeneralRequest';
 import {languages} from '../enums';
 import {routes} from "../App";
 import Utility from "../Utility";
@@ -11,7 +11,7 @@ export class GeneralStore {
     language = observable.box(languages.ENGLISH);
 
     sanity = action(async () => {
-        const response = await GeneralRequester.generalSanity();
+        const response = await GeneralRequest.generalSanity();
         console.log(response)
     });
 

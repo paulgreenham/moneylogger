@@ -1,5 +1,5 @@
 import {action, computed, observable} from 'mobx';
-import {UserRequester} from '../requests/UserRequester';
+import {UserRequest} from '../requests/UserRequest';
 import jwt from 'jsonwebtoken';
 import Cookies from 'js-cookie';
 import Utility from "../Utility";
@@ -12,7 +12,7 @@ export class UserStore {
     userDetails = observable.object({});
 
     sanity = action(async () => {
-        const response = await UserRequester.userSanity();
+        const response = await UserRequest.userSanity();
         console.log(response)
     });
 

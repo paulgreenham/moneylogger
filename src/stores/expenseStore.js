@@ -1,15 +1,15 @@
 import {action, computed, observable} from 'mobx';
-import {AppRequester} from '../requests/AppRequester';
+import {ExpenseRequest} from '../requests/ExpenseRequest';
 import {routes} from "../App";
 import Utility from "../Utility";
 
 
-export class AppStore {
+export class ExpenseStore {
 
     appVar = observable.box("app");
 
     sanity = action(async () => {
-        const response = await AppRequester.appSanity();
+        const response = await ExpenseRequest.appSanity();
         console.log(response)
     });
 

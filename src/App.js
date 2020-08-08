@@ -20,14 +20,14 @@ export const routes = {
 };
 
 const App = observer(() => {
-    const {generalStore, userStore, appStore} = useStores();
+    const {generalStore, userStore, expenseStore} = useStores();
     const langDir = generalStore.langDir;
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         generalStore.sanity().then( async () => {
             await userStore.sanity();
-            await appStore.sanity();
+            await expenseStore.sanity();
             setLoading(false)
         });
     }, []);

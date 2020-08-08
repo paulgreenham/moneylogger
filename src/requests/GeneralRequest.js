@@ -2,10 +2,10 @@ import axios from 'axios'
 
 const url = process.env.NODE_ENV === "production" ? process.env.PUBLIC_URL : "http://localhost";
 
-export class AppRequester {
+export class GeneralRequest {
 
-    static async appSanity() {
-        const result = await axios.get(`${url}/app/sanity`);
+    static async generalSanity() {
+        const result = await axios.get(`${url}/alive`);
         return result.data
     }
 }

@@ -9,7 +9,7 @@ const colors = [
     "#c4d647" ,"#e0eeb8" ,"#11dec1" ,"#289812" ,"#566ca0"
 ];
 
-class Utility {
+export default class Utility {
     static objIsEmpty (obj) {
         return Object.keys(obj).length === 0 && obj.constructor === Object
     }
@@ -49,5 +49,3 @@ class Utility {
         return id
     };
 }
-
-module.exports = Utility;

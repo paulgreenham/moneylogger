@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const enums = require('../src/enums');
 const user = require('../routes/user/userApis');
-const appApis = require('../routes/app/appApis')
+const expense = require('./expense/expenseApis');
 
-router.use('/app', appApis);
+router.use('/expense', expense);
 router.use('/user', user);
 
 router.get('/alive', (ignored, res) => {
