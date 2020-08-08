@@ -10,6 +10,7 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import {useStores} from './hooks/useStores';
 import {Home} from './Components/Home';
 import {Page404} from './Components/Page404';
+import {userStore} from "./contexts";
 
 const history = createBrowserHistory();
 
@@ -19,13 +20,21 @@ export const routes = {
 };
 
 const App = observer(() => {
-    const {generalStore} = useStores();
+    const {generalStore, userStore, appStore} = useStores();
     const langDir = generalStore.langDir;
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        generalStore.sanity().then( async () => {
+            await userStore.sanity();
+            await appStore.sanity();
+            setLoading(false)
+        });
+    }, []);
 
     useEffect(() => {
         document.body.classList.add(langDir);
-    });
+    }, []);
 
     const theme = createMuiTheme({});
 
