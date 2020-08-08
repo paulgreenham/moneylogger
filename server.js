@@ -2,10 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
-const api = require('./routes/fileApis');
+const api = require('./routes/api');
 const jwt = require('jsonwebtoken');
 const {ObjectId} = require('mongodb');
-const jwtKey = require('./src/config').jwtKey;
+const {jwtKey} = require('./src/config');
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/appTemplate', {

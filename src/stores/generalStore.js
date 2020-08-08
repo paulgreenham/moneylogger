@@ -4,7 +4,6 @@ import {languages} from '../enums';
 import {routes} from "../App";
 import Utility from "../Utility";
 
-
 export class GeneralStore {
 
     generalVar = observable.box("general");
